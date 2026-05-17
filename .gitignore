@@ -427,3 +427,15 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+.DS_Store
+
+# Environment files — contains API keys, never commit
+.env
+.env.*
+
+# User Secrets — local development only
+secrets.json
+**/secrets.json
+
+# Optional: uncomment if you store secrets in Development config
+# appsettings.Development.json

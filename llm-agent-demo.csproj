@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- ======================================================================
+       项目元信息
+       ====================================================================== -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>llm_agent_demo</RootNamespace>
+    <Version>1.0.0</Version>
+    <Description>基于 .NET 10 WebAPI 的 LLM 调用与智能体工作流框架，支持 DeepSeek / Ollama 多提供方切换。</Description>
+    <Authors>LLM Agent Demo Contributors</Authors>
+  </PropertyGroup>
+
+  <!-- ======================================================================
+       编译行为
+       ====================================================================== -->
+  <PropertyGroup>
+    <!-- 启用 C# Nullable 引用类型检查，编译期防止 NRE -->
+    <Nullable>enable</Nullable>
+
+    <!-- 隐式 using：自动引入 System / System.Linq / System.Threading 等常用命名空间 -->
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- 代码分析级别（可选，取消注释以启用严格检查）：
+         <AnalysisLevel>latest-minimum</AnalysisLevel>    最宽松，仅致命问题
+         <AnalysisLevel>latest-recommended</AnalysisLevel>  推荐级别，平衡性能与正确性
+         <AnalysisLevel>latest-all</AnalysisLevel>          最严格，所有规则 -->
+    <!-- 当前未启用 AnalysisLevel，首次提交保持零 Warning -->
+  </PropertyGroup>
+
+  <!-- ======================================================================
+       XML 文档生成 — 为 Swagger 提供 Controller 注释
+       ====================================================================== -->
+  <PropertyGroup>
+    <!-- 编译时生成 XML 文档文件，Swagger 读取它以展示接口说明 -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- 抑制 CS1591：未给 public 成员写 XML 注释的警告（保持宽松） -->
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <!-- ======================================================================
+       运行时标识 — 方便 Docker / K8s 中识别进程
+       ====================================================================== -->
+  <PropertyGroup>
+    <!-- 生成 runtimeconfig.json 时写入项目名（非默认的 dll 名） -->
+    <UserSecretsId>llm-agent-demo-dev</UserSecretsId>
+  </PropertyGroup>
+
+  <!-- ======================================================================
+       NuGet 包引用
+       ====================================================================== -->
+  <ItemGroup>
+    <!-- Swagger UI + OpenAPI 文档生成（在线 API 调试页面 /swagger） -->
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.3.1" />
+  </ItemGroup>
+
+  <!-- ======================================================================
+       本项目的依赖全部来自 NuGet，没有项目引用 (ProjectReference)。
+       如需引用同一 Solution 下的其他项目，在此添加：
+       <ProjectReference Include="../OtherProject/OtherProject.csproj" />
+       ====================================================================== -->
+
+</Project>

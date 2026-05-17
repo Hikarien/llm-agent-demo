@@ -1,0 +1,54 @@
+# =============================================================================
+# .dockerignore — 排除不需要打包进镜像的文件
+# =============================================================================
+
+# IDE / Editor
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Build artifacts
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+out/
+
+# NuGet
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+coverage.*
+*.trx
+
+# Environment (包含真实 API Key，绝不打进镜像)
+.env
+.env.*
+!.env.example
+
+# User Secrets
+*.user
+*.userosscache
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation (README 在 GitHub 看，不需要在容器里)
+README*.md
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
