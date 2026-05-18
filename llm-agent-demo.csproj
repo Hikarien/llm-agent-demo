@@ -52,6 +52,8 @@
        ====================================================================== -->
   <ItemGroup>
     <!-- Swagger UI + OpenAPI 文档生成（在线 API 调试页面 /swagger） -->
+    <PackageReference Include="Microsoft.Agents.AI" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.3.1" />
   </ItemGroup>
 
